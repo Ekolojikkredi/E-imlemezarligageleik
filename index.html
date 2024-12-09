@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>♻️ Ekolojik Kredi Sistemi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">♻️ Ekolojik Kredi</div>
+        <a href="#" class="button" onclick="showSection('register')">Kayıt Ol</a>
+        <a href="#" class="button" onclick="showSection('entry')">Veri Girişi</a>
+        <a href="#" class="button" onclick="showSection('view')">Veri Görüntüle</a>
+    </div>
+    <div class="content">
+        <div id="main">
+            <h1>Hoş Geldiniz</h1>
+            <p>Ekolojik Kredi Sistemi'ne hoş geldiniz. Geri dönüşüm yaparak kredi kazanın!</p>
+        </div>
+
+        <!-- Kayıt Ol -->
+        <div id="register" style="display: none;">
+            <h2>Kayıt Ol</h2>
+            <form id="studentForm">
+                <h3>Öğrenci Kaydı</h3>
+                <input type="text" id="studentName" placeholder="Ad" required>
+                <input type="text" id="studentSurname" placeholder="Soyad" required>
+                <input type="number" id="studentNumber" placeholder="Öğrenci Numarası" required>
+                <input type="email" id="studentEmail" placeholder="E-Posta" required>
+                <input type="text" id="studentSchool" placeholder="Okul Adı" required>
+                <input type="text" id="studentClass" placeholder="Sınıf" required>
+                <button type="button" onclick="registerStudent()">Kaydet</button>
+            </form>
+            <form id="schoolForm" style="margin-top: 20px;">
+                <h3>Okul Kaydı</h3>
+                <input type="text" id="schoolName" placeholder="Okul Adı" required>
+                <input type="text" id="schoolCity" placeholder="İl" required>
+                <input type="text" id="schoolDistrict" placeholder="İlçe" required>
+                <input type="password" id="schoolPassword" placeholder="Şifre" required>
+                <button type="button" onclick="registerSchool()">Kaydet</button>
+            </form>
+        </div>
+
+        <!-- Veri Girişi -->
+        <div id="entry" style="display: none;">
+            <h2>Veri Girişi</h2>
+            <form>
+                <input type="text" id="entrySchoolName" placeholder="Okul Adı" required>
+                <input type="password" id="entryPassword" placeholder="Şifre" required>
+                <button type="button" onclick="loginSchool()">Giriş Yap</button>
+            </form>
+            <div id="entryForm" style="display: none; margin-top: 20px;">
+                <input type="text" id="entryStudentName" placeholder="Öğrenci Adı" required>
+                <input type="text" id="entryStudentNumber" placeholder="Öğrenci Numarası" required>
+                <select id="entryWasteType">
+                    <option value="Cam">Cam</option>
+                    <option value="Kağıt">Kağıt</option>
+                    <option value="Plastik">Plastik</option>
+                    <option value="Metal">Metal</option>
+                    <option value="Pil">Pil</option>
+                    <option value="Elektronik">Elektronik</option>
+                    <option value="Yağ">Yağ</option>
+                    <option value="Tekstil">Tekstil</option>
+                </select>
+                <input type="number" id="entryWeight" placeholder="Ağırlık (kg)" required>
+                <input type="text" id="entryRecorder" placeholder="Kaydı Yapan" required>
+                <button type="button" onclick="addEntry()">Ekle</button>
+            </div>
+        </div>
+
+        <!-- Veri Görüntüle -->
+        <div id="view" style="display: none;">
+            <h2>Veri Görüntüle</h2>
+            <form>
+                <input type="email" id="viewEmail" placeholder="E-Posta" required>
+                <input type="number" id="viewStudentNumber" placeholder="Öğrenci Numarası" required>
+                <button type="button" onclick="viewData()">Görüntüle</button>
+            </form>
+            <div id="viewTable" style="display: none;">
+                <h3>Atık Kayıtları</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Atık Türü</th>
+                            <th>Ağırlık (kg)</th>
+                            <th>Kredi</th>
+                            <th>Kaydı Yapan</th>
+                        </tr>
+                    </thead>
+                    <tbody id="viewRecords"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
